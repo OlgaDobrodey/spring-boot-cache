@@ -1,6 +1,5 @@
 package com.itrex.cache.service;
 
-import com.itrex.cache.model.Account;
 import com.itrex.cache.model.Bank;
 
 import java.util.List;
