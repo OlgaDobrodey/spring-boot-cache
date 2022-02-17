@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-
 @Service
 @Transactional
 @CacheConfig(cacheResolver ="cacheResolver")
@@ -60,14 +59,14 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    @CachePut(cacheNames = "accountCache", key = "#account.id", unless = "#result.lastName.contains('Green')")
+    @CachePut(key = "#account.id", unless = "#result.lastName.contains('Green')")
     public Account save(Account account) {
         System.out.println("method save called");
         return accountRepository.save(account);
     }
 
     @Override
-    @CachePut(cacheNames = "accountCache",key = "#account.id")
+    @CachePut(key = "#account.id")
     public Account update(Account account) {
         System.out.println("method update called");
         Account accountUpdate = accountRepository.getById(account.getId());
@@ -78,13 +77,13 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    @CacheEvict("accountCache")
+    @CacheEvict()
     public void remove(Long id) {
         System.out.println("method remove called");
     }
 
     @Override
-    @CacheEvict(value = "accountCache",allEntries = true)
+    @CacheEvict(allEntries = true)
     public void removeAll() {
         System.out.println("method remove all called");
     }

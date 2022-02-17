@@ -74,7 +74,6 @@ public class SpringBootCacheApplication implements CommandLineRunner {
         System.out.println(accountService.findFirstNameById(1000l));
         System.out.println("=============== GET LAST NAME =====================");
         System.out.println(accountService.findLastNameById(1000l));
-
     }
 
     private void cachePut() {
@@ -89,7 +88,6 @@ public class SpringBootCacheApplication implements CommandLineRunner {
         System.out.println(accountService.update(account));
         System.out.println("=============== READ CACHE =====================");
         System.out.println(accountService.findOne(2000l));
-
     }
 
     private void delete() {
@@ -106,7 +104,6 @@ public class SpringBootCacheApplication implements CommandLineRunner {
         System.out.println("=============== READ CACHE =====================");
         System.out.println(accountService.findOne(2000l));
         System.out.println(accountService.findOne(3000l));
-
     }
 
     private void condition() {
